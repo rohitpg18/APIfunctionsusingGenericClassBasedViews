@@ -1,0 +1,14 @@
+@api_view(['POST'])
+def update_items(request, pk):
+	item = Employees.objects.get(id=pk)
+	data = ItemSerializer(instance=item, data=request.data)
+
+	if data.is_valid():
+		data.save()
+		return Response(data.data)
+
+@api_view(['DELETE'])
+def del_items(request, pk):
+    item = Employees.objects.get(id=pk)
+    item.delete()
+    return Response ("Deleted")
