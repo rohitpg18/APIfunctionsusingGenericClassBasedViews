@@ -11,4 +11,4 @@ def update_items(request, pk):
 def del_items(request, pk):
     item = Employees.objects.get(id=pk)
     item.delete()
-    return Response ("Deleted")
+	return Response ("Deleted")
